@@ -1,26 +1,316 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Cyberpunk Colors */
+  --color-brand: #ff2d46;
+  --color-brand-dark: #cc1a33;
+  --color-accent: #00f0ff;
+  --color-accent-alt: #ff2d78;
+  --color-neon-yellow: #f9b923;
+  --color-ink: #e0e0e8;
+  --color-muted: #5a5a6e;
+  --color-surface: #0a0a0f;
+  --color-surface-tint: #0d0d15;
+  --color-surface-card: #12121c;
+  --color-border: #1a1a2e;
+
+  /* Fonts */
+  --font-sans: var(--font-noto-sans-jp), var(--font-inter), "Noto Sans JP", Inter, sans-serif;
+  --font-display: var(--font-orbitron), Orbitron, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #00f0ff30;
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 0;
+}
+
+/* ===== Cyberpunk Grid Background ===== */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.cyber-grid-dense {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ===== Scan Lines Overlay ===== */
+.scan-lines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== Neon Glow Effects ===== */
+.neon-text-cyan {
+  text-shadow:
+    0 0 7px #00f0ff80,
+    0 0 20px #00f0ff40,
+    0 0 42px #00f0ff20;
+}
+
+.neon-text-magenta {
+  text-shadow:
+    0 0 7px #ff2d7880,
+    0 0 20px #ff2d7840,
+    0 0 42px #ff2d7820;
+}
+
+.neon-text-red {
+  text-shadow:
+    0 0 7px #ff2d4680,
+    0 0 20px #ff2d4640,
+    0 0 42px #ff2d4620;
+}
+
+.neon-box-cyan {
+  box-shadow:
+    0 0 5px #00f0ff40,
+    0 0 15px #00f0ff20,
+    inset 0 0 5px #00f0ff10;
+}
+
+.neon-box-magenta {
+  box-shadow:
+    0 0 5px #ff2d7840,
+    0 0 15px #ff2d7820,
+    inset 0 0 5px #ff2d7810;
+}
+
+/* ===== Glitch Effect ===== */
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 2px); }
+  40% { clip-path: inset(60% 0 10% 0); transform: translate(3px, -1px); }
+  60% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, 1px); }
+  80% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(50% 0 30% 0); transform: translate(3px, -2px); }
+  40% { clip-path: inset(10% 0 70% 0); transform: translate(-3px, 1px); }
+  60% { clip-path: inset(70% 0 15% 0); transform: translate(2px, -1px); }
+  80% { clip-path: inset(30% 0 50% 0); transform: translate(-2px, 2px); }
+}
+
+@keyframes glitch-skew {
+  0%, 100% { transform: skew(0deg); }
+  20% { transform: skew(-1deg); }
+  40% { transform: skew(0.5deg); }
+  60% { transform: skew(-0.3deg); }
+  80% { transform: skew(0.8deg); }
+}
+
+.glitch {
+  position: relative;
+  animation: glitch-skew 4s ease-in-out infinite alternate;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  color: var(--color-accent);
+  animation: glitch-1 3s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+.glitch::after {
+  color: var(--color-accent-alt);
+  animation: glitch-2 2.5s ease-in-out infinite alternate-reverse;
+  z-index: -1;
+}
+
+/* ===== Animations ===== */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes scan-move {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes line-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  33% { opacity: 0.95; }
+  66% { opacity: 1; }
+  77% { opacity: 0.9; }
+  90% { opacity: 1; }
+}
+
+@keyframes border-pulse {
+  0%, 100% { border-color: rgba(0, 240, 255, 0.15); }
+  50% { border-color: rgba(0, 240, 255, 0.4); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== Animation classes ===== */
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-up-d1 {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.animate-fade-up-d2 {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.animate-fade-up-d3 {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.animate-fade-up-d4 {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.animate-fade-up-d5 {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease both;
+}
+
+.animate-line-grow {
+  transform-origin: left;
+  animation: line-grow 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-flicker {
+  animation: flicker 4s ease-in-out infinite;
+}
+
+.animate-border-pulse {
+  animation: border-pulse 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-d1 {
+  animation: float 7s ease-in-out 1s infinite;
+}
+
+.animate-float-d2 {
+  animation: float 8s ease-in-out 2s infinite;
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-up-d1,
+  .animate-fade-up-d2,
+  .animate-fade-up-d3,
+  .animate-fade-up-d4,
+  .animate-fade-up-d5,
+  .animate-fade-in,
+  .animate-line-grow,
+  .animate-blink,
+  .animate-marquee,
+  .animate-pulse-glow,
+  .animate-flicker,
+  .animate-border-pulse,
+  .animate-float,
+  .animate-float-d1,
+  .animate-float-d2,
+  .glitch,
+  .glitch::before,
+  .glitch::after {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
