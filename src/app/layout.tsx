@@ -7,18 +7,22 @@ import "./globals.css";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
+  weight: ["400", "700"],
   variable: "--font-noto-sans-jp",
   display: "swap",
+  preload: false,
 });
 
 const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
   variable: "--font-inter",
   display: "swap",
 });
 
 const orbitron = Orbitron({
   subsets: ["latin"],
+  weight: ["700", "900"],
   variable: "--font-orbitron",
   display: "swap",
 });
@@ -57,7 +61,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "くまで",
               url: "https://kumade.jp",
-              logo: "https://kumade.jp/logo.svg",
+              logo: "https://kumade.jp/logo.webp",
               description:
                 "福島県大熊町発のPR・ブランディング会社。クリエイティブ制作から事業の伴走支援まで。",
               address: {

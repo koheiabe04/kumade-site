@@ -49,7 +49,7 @@ export function Footer() {
             <div>
               <Link href="/">
                 <Image
-                  src="/logo.png"
+                  src="/logo.webp"
                   alt="KUMADE"
                   width={120}
                   height={40}

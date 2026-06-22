@@ -5,7 +5,7 @@ export function Logo({ className = "" }: { className?: string }) {
   return (
     <Link href="/" className={`flex items-center group ${className}`}>
       <Image
-        src="/logo.png"
+        src="/logo.webp"
         alt="KUMADE"
         width={120}
         height={40}

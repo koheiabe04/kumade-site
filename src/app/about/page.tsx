@@ -122,7 +122,7 @@ export default function AboutPage() {
                 <div className="absolute bottom-2 left-2 w-4 h-4 border-b border-l border-accent/30" />
                 <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-accent/30" />
                 <Image
-                  src="/logo.png"
+                  src="/logo.webp"
                   alt="KUMADE"
                   width={600}
                   height={200}

@@ -40,7 +40,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center group">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="KUMADE"
             width={120}
             height={40}
@@ -96,7 +96,7 @@ export function Header() {
             onClick={() => setIsOpen(false)}
           >
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="KUMADE"
               width={120}
               height={40}
