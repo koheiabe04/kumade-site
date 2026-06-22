@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ScrollFadeIn } from "@/components/ScrollFadeIn";
 
 export const metadata: Metadata = {
@@ -111,28 +112,48 @@ export default function AboutPage() {
             </h2>
           </ScrollFadeIn>
 
+          {/* Logo display */}
+          <ScrollFadeIn delay={80}>
+            <div className="mt-14 flex justify-center">
+              <div className="relative border border-border bg-surface-card p-12 md:p-16 max-w-2xl w-full">
+                <div className="absolute inset-0 cyber-grid-dense opacity-20" />
+                <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-accent/30" />
+                <div className="absolute top-2 right-2 w-4 h-4 border-t border-r border-accent/30" />
+                <div className="absolute bottom-2 left-2 w-4 h-4 border-b border-l border-accent/30" />
+                <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-accent/30" />
+                <Image
+                  src="/logo.png"
+                  alt="KUMADE"
+                  width={600}
+                  height={200}
+                  className="relative w-full h-auto"
+                />
+              </div>
+            </div>
+          </ScrollFadeIn>
+
           <div className="mt-14 grid md:grid-cols-3 gap-4">
             {[
               {
-                color: "border-brand/30 bg-brand/5",
-                indicator: "bg-brand",
-                title: "赤い背景",
-                desc: "情熱・エネルギー・行動力。地方から挑む熱量を表現しています。",
-                tag: "RED_01",
-              },
-              {
                 color: "border-accent/20 bg-accent/5",
-                indicator: "bg-ink/40",
-                title: "白い熊手の爪",
-                desc: "福をかき集める熊手の爪。お客さまの事業から価値を引き出す力の象徴です。",
-                tag: "WHT_02",
+                indicator: "bg-accent",
+                title: "サイバーグロー",
+                desc: "シアンの発光が文字を縁取る。テクノロジーと未来志向を体現するネオンの光。",
+                tag: "CYN_01",
               },
               {
-                color: "border-neon-yellow/20 bg-neon-yellow/5",
-                indicator: "bg-neon-yellow",
-                title: "朝日の丸",
-                desc: "右上に輝く黄金の丸は昇る朝日。出発・希望・新しい始まりを象徴しています。",
-                tag: "YLW_03",
+                color: "border-accent-alt/20 bg-accent-alt/5",
+                indicator: "bg-accent-alt",
+                title: "グリッチノイズ",
+                desc: "マゼンタのグリッチが走る。常識を壊し、地方から新しい価値を生み出す姿勢の表現。",
+                tag: "MGT_02",
+              },
+              {
+                color: "border-border bg-surface-card",
+                indicator: "bg-ink",
+                title: "ブロックレター",
+                desc: "太く力強い文字は、地方から挑む覚悟と存在感。読みやすく、記憶に残るタイポグラフィ。",
+                tag: "BLK_03",
               },
             ].map((item, i) => (
               <ScrollFadeIn key={item.title} delay={100 + i * 80}>

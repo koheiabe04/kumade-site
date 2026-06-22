@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ArrowRight } from "lucide-react";
 
 const navItems = [
@@ -37,10 +38,15 @@ export function Header() {
     >
       <div className="mx-auto max-w-7xl flex items-center justify-between px-6 lg:px-8 h-16 md:h-20">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="text-sm font-display font-black tracking-[0.15em] text-accent group-hover:neon-text-cyan transition-all uppercase">
-            KUMADE
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image
+            src="/logo.png"
+            alt="KUMADE"
+            width={120}
+            height={40}
+            className="group-hover:scale-105 transition-transform"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -86,12 +92,15 @@ export function Header() {
         <div className="relative z-10 flex items-center justify-between px-6 h-16">
           <Link
             href="/"
-            className="flex items-center gap-2"
+            className="flex items-center"
             onClick={() => setIsOpen(false)}
           >
-            <span className="text-sm font-display font-black tracking-[0.15em] text-accent uppercase">
-              KUMADE
-            </span>
+            <Image
+              src="/logo.png"
+              alt="KUMADE"
+              width={120}
+              height={40}
+            />
           </Link>
           <button
             type="button"

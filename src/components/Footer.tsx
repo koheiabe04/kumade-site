@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const navItems = [
@@ -46,9 +47,15 @@ export function Footer() {
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
             {/* Logo & description */}
             <div>
-              <span className="font-display font-black text-sm tracking-[0.15em] text-accent uppercase">
-                KUMADE
-              </span>
+              <Link href="/">
+                <Image
+                  src="/logo.png"
+                  alt="KUMADE"
+                  width={120}
+                  height={40}
+                  className="hover:scale-105 transition-transform"
+                />
+              </Link>
               <p className="mt-3 text-muted/60 text-xs max-w-xs leading-relaxed font-mono">
                 // 福島県大熊町発のPR・ブランディング会社
               </p>
