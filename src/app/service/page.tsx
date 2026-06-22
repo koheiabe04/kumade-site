@@ -117,7 +117,7 @@ export default function ServicePage() {
           </h1>
           <div className="mt-8 w-16 h-px bg-gradient-to-r from-accent to-transparent" />
           <p className="mt-6 text-base text-muted max-w-lg leading-relaxed">
-            制作と伴走。ふたつの力で、事業の成長を支えます。
+            つくる力と、走り続ける力。
           </p>
         </div>
       </section>
@@ -136,8 +136,8 @@ export default function ServicePage() {
               Creative
             </h2>
             <p className="mt-5 text-muted max-w-xl leading-relaxed text-lg">
-              あなたの事業の「顔」をつくる。
-              戦略を踏まえたデザインで、届く形に変える。
+              事業の「顔」をつくる。
+              伝わる形に、変える。
             </p>
           </ScrollFadeIn>
 
@@ -182,7 +182,7 @@ export default function ServicePage() {
             </h2>
             <p className="mt-5 text-muted max-w-xl leading-relaxed text-lg">
               作って終わりじゃない。
-              継続的なPR・ブランディング支援で、事業の成長に寄り添います。
+              結果が出るまで、一緒に走る。
             </p>
           </ScrollFadeIn>
 
@@ -283,6 +283,65 @@ export default function ServicePage() {
                 </Link>
               </div>
             </ScrollFadeIn>
+          </div>
+        </div>
+      </section>
+      {/* FAQ */}
+      <section className="py-32 md:py-40 bg-surface">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <ScrollFadeIn>
+            <p className="text-xs font-mono text-accent/50 tracking-[0.3em] uppercase">
+              // FAQ
+            </p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-display font-black text-ink leading-[1.1] tracking-tight uppercase">
+              FAQ
+            </h2>
+          </ScrollFadeIn>
+
+          <div className="mt-14 space-y-4">
+            {[
+              {
+                num: "01",
+                q: "初回相談は無料ですか？",
+                a: "はい、ヒアリングとご提案は無料です。お気軽にお問い合わせください。",
+              },
+              {
+                num: "02",
+                q: "地方（東京以外）からの依頼も対応していますか？",
+                a: "はい。くまでは福島県大熊町を拠点に、全国のお客さまに対応しています。オンライン打ち合わせも可能です。",
+              },
+              {
+                num: "03",
+                q: "納期はどれくらいですか？",
+                a: "内容や規模によりますが、Webサイト制作は約1〜3ヶ月、ロゴ・名刺は約2〜4週間が目安です。お急ぎの場合もご相談ください。",
+              },
+              {
+                num: "04",
+                q: "制作後の修正や運用サポートはありますか？",
+                a: "はい。納品後の修正対応はもちろん、継続的なブランディング・PR支援のプランもご用意しています。",
+              },
+              {
+                num: "05",
+                q: "予算が限られていますが相談できますか？",
+                a: "もちろんです。ご予算に合わせた最適なプランをご提案します。まずはお気軽にご相談ください。",
+              },
+            ].map((item, i) => (
+              <ScrollFadeIn key={item.num} delay={i * 80}>
+                <div className="border border-border bg-surface-card p-7 hover:border-accent/20 transition-all">
+                  <div className="flex items-start gap-5">
+                    <span className="shrink-0 text-xs font-mono text-accent/30 tracking-widest pt-1">
+                      {item.num}
+                    </span>
+                    <div className="space-y-3">
+                      <p className="text-base font-bold text-ink">{item.q}</p>
+                      <p className="text-sm text-muted leading-relaxed">
+                        {item.a}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollFadeIn>
+            ))}
           </div>
         </div>
       </section>

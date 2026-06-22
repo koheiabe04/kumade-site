@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { ScrollFadeIn } from "@/components/ScrollFadeIn";
 import { HeroSection } from "@/components/HeroSection";
 import { TypewriterHeading } from "@/components/TypewriterHeading";
+import { works } from "@/content/works";
 
 export default function Home() {
   return (
@@ -19,13 +20,13 @@ export default function Home() {
       <div className="mt-12 md:mt-20 px-6 md:px-8 max-w-7xl mx-auto">
         <ScrollFadeIn>
           <p className="text-lg md:text-2xl leading-[2] text-muted max-w-3xl">
-            地方には、まだ誰にも届いていない価値がある。
+            いいものを持っているのに、伝わっていない。
             <br />
-            見えてないんじゃない。届けてないだけだ。
+            そういう会社を何度も見てきた。
             <br />
-            私たちは、デザインと戦略で、
+            デザインとPRで、<span className="text-accent">ちゃんと届くようにする</span>。
             <br className="hidden md:block" />
-            あなたの事業を<span className="text-accent">世の中に届ける</span>パートナーです。
+            それが、くまでの仕事。
           </p>
         </ScrollFadeIn>
       </div>
@@ -40,7 +41,7 @@ export default function Home() {
             Service
           </h2>
           <p className="text-base mt-4 md:mt-8 text-muted">
-            制作と伴走。ふたつの力で、事業を前に動かす。
+            つくる力と、走り続ける力。
           </p>
         </ScrollFadeIn>
 
@@ -58,7 +59,7 @@ export default function Home() {
                   </h3>
                 </div>
                 <p className="text-sm md:text-base text-muted mt-3 md:mt-0 leading-relaxed">
-                  Webサイト、バナー、名刺、ロゴなど。あなたの事業の「顔」をデザインの力でつくります。
+                  Webサイト、バナー、名刺、ロゴ。事業の「顔」をつくる。
                 </p>
                 <div className="hidden md:flex items-center shrink-0 text-muted group-hover:text-accent transition-colors">
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -78,7 +79,7 @@ export default function Home() {
                   </h3>
                 </div>
                 <p className="text-sm md:text-base text-muted mt-3 md:mt-0 leading-relaxed">
-                  作って終わりじゃない。継続的なブランディング・PR支援で、事業の成長に寄り添います。
+                  作って終わりじゃない。PR・ブランディングで、結果が出るまで走る。
                 </p>
                 <div className="hidden md:flex items-center shrink-0 text-muted group-hover:text-accent transition-colors">
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -109,35 +110,46 @@ export default function Home() {
             Works
           </h2>
           <p className="text-base mt-4 md:mt-8 text-muted">
-            クリエイティブ制作・伴走支援の実績をご紹介します。
+            やってきたこと、見せます。
           </p>
         </ScrollFadeIn>
 
         <ScrollFadeIn delay={100}>
-          <div className="mt-8 md:mt-16 grid md:grid-cols-3 gap-5 md:gap-6">
-            {[1, 2, 3].map((i) => (
-              <article key={i} className="group border border-border hover:border-accent/20 transition-all bg-surface-card">
-                <figure className="aspect-video overflow-hidden bg-surface-tint relative">
-                  <div className="absolute inset-0 cyber-grid-dense opacity-30" />
-                  <div className="h-full w-full flex items-center justify-center relative z-10">
-                    <div className="text-center">
-                      <div className="w-8 h-8 mx-auto border border-accent/20 flex items-center justify-center mb-3">
-                        <div className="w-2 h-2 bg-accent/30" />
+          <div className="mt-8 md:mt-16">
+            {works.length > 0 ? (
+              <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+                {works.slice(0, 3).map((work) => (
+                  <Link key={work.slug} href={`/works/${work.slug}`}>
+                    <article className="group border border-border hover:border-accent/20 transition-all bg-surface-card h-full">
+                      <figure className="aspect-video overflow-hidden bg-surface-tint relative">
+                        <div className="absolute inset-0 cyber-grid-dense opacity-30" />
+                        <div className="h-full w-full flex items-center justify-center relative z-10">
+                          <p className="text-[10px] text-accent/50 tracking-[0.2em] uppercase font-mono px-4 text-center">
+                            {work.category}
+                          </p>
+                        </div>
+                      </figure>
+                      <div className="p-5">
+                        <h4 className="text-base font-bold group-hover:text-accent transition-colors">
+                          {work.title}
+                        </h4>
+                        <p className="text-sm text-muted mt-2 leading-relaxed line-clamp-2">{work.summary}</p>
                       </div>
-                      <p className="text-[10px] text-muted/40 tracking-[0.2em] uppercase font-mono">
-                        Coming Soon
-                      </p>
-                    </div>
-                  </div>
-                </figure>
-                <div className="p-5">
-                  <h4 className="text-base font-bold group-hover:text-accent transition-colors">
-                    実績を準備しています
-                  </h4>
-                  <p className="text-sm text-muted mt-2 font-mono">// 準備中</p>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="border border-border bg-surface-card p-12 text-center">
+                <div className="w-8 h-8 mx-auto border border-accent/20 flex items-center justify-center mb-4">
+                  <div className="w-2 h-2 bg-accent/30" />
                 </div>
-              </article>
-            ))}
+                <p className="text-[10px] text-muted/40 tracking-[0.2em] uppercase font-mono">
+                  Coming Soon
+                </p>
+                <p className="text-sm text-muted mt-3">実績を準備しています</p>
+              </div>
+            )}
           </div>
         </ScrollFadeIn>
 
@@ -180,13 +192,11 @@ export default function Home() {
               から生まれた会社です。
             </p>
             <p className="mt-6 text-base md:text-lg text-muted leading-[2]">
-              地方だからこそ見える景色がある。
+              大熊町から始めた。
               <br />
-              地方だからこそ届けられる価値がある。
-              <br />
-              私たちは、あなたの想いに向き合い、
+              東京にいなくても、やれることは全部やる。
               <br className="hidden md:block" />
-              走り続けます。
+              つくって、届けて、走り続ける。
             </p>
             <Link
               href="/about"
@@ -199,29 +209,6 @@ export default function Home() {
         </ScrollFadeIn>
       </div>
 
-      {/* ===== Contact CTA ===== */}
-      <div className="relative mt-32 md:mt-52 mb-32 md:mb-52 px-6 md:px-8 max-w-7xl mx-auto text-center">
-        <ScrollFadeIn>
-          <p className="text-xs font-mono text-accent/50 tracking-[0.3em] uppercase mb-3">
-            &lt; Contact /&gt;
-          </p>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-black tracking-tight uppercase">
-            Contact
-          </h2>
-          <p className="mt-8 text-base md:text-lg text-muted leading-relaxed max-w-lg mx-auto">
-            まずは気軽にご相談ください。
-            <br />
-            あなたの事業の話、聞かせてください。
-          </p>
-          <Link
-            href="/contact"
-            className="group inline-flex h-14 items-center justify-center border border-accent-alt/40 px-10 text-sm font-mono font-bold tracking-wider uppercase leading-none mt-12 hover:bg-accent-alt/10 hover:border-accent-alt/60 text-accent-alt transition-all"
-          >
-            Get in Touch
-            <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </ScrollFadeIn>
-      </div>
     </>
   );
 }

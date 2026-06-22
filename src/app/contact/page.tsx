@@ -22,9 +22,7 @@ export default function ContactPage() {
           </h1>
           <div className="mt-8 w-16 h-px bg-gradient-to-r from-accent to-transparent" />
           <p className="mt-6 text-base text-muted leading-relaxed">
-            ブランディング・PR・制作のこと、
-            <br className="hidden md:block" />
-            まずは気軽にご相談ください。
+            事業の話、聞かせてください。
           </p>
         </div>
       </section>

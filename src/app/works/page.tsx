@@ -91,7 +91,7 @@ export default function WorksPage() {
           </h1>
           <div className="mt-8 w-16 h-px bg-gradient-to-r from-accent to-transparent" />
           <p className="mt-6 text-base text-muted max-w-lg leading-relaxed">
-            くまでがお手伝いした事例をご紹介します。
+            やってきたこと、見せます。
           </p>
         </div>
       </section>

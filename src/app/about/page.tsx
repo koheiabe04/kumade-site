@@ -24,7 +24,7 @@ export default function AboutPage() {
           </h1>
           <div className="mt-8 w-16 h-px bg-gradient-to-r from-accent to-transparent" />
           <p className="mt-6 text-base text-muted max-w-lg leading-relaxed">
-            福島県大熊町から、まだ届いていない価値を届ける。
+            大熊町から始めた、PR・ブランディング会社。
           </p>
         </div>
       </section>
@@ -54,18 +54,16 @@ export default function AboutPage() {
                       福をかき集める
                     </span>
                     道具です。
-                    お客さまの事業に眠る可能性を見つけ出し、
-                    世の中に届けるお手伝いをしたい。
+                    事業の中にある「まだ届いていないもの」をかき集めて、届ける。そのための道具。
                   </p>
                   <p>
                     もうひとつは、
                     <span className="text-ink font-semibold">大熊町</span>。
-                    私たちは福島県大熊町からスタートしました。
-                    地方からでも、いや、
+                    福島県大熊町。ここが始まりの場所。
                     <span className="text-accent font-semibold">
-                      地方だからこそ
+                      地方だから何もできない、なんてことはない。
                     </span>
-                    届けられる価値がある。 そう信じて歩み出した原点の地です。
+                    そう証明するために動き出した。
                   </p>
                 </div>
               </div>
@@ -178,17 +176,17 @@ export default function AboutPage() {
               {
                 num: "01",
                 title: "地方から、仕掛ける",
-                desc: "東京じゃなくてもいい。むしろ地方にしかないストーリーがある。私たちはそれを見つけ出し、届けます。",
+                desc: "東京じゃなくても、やれることは全部やる。場所を言い訳にしない。",
               },
               {
                 num: "02",
                 title: "作って終わりにしない",
-                desc: "Webサイトや名刺を作っただけでは何も変わらない。継続的な伴走で、本当の成果につなげます。",
+                desc: "納品して終わりなら、そのへんの業者と同じ。結果が出るまで一緒に走る。",
               },
               {
                 num: "03",
                 title: "一社一社、丁寧に",
-                desc: "大量生産のテンプレートではなく、一社一社の事業を深く理解し、その会社だけのブランドを築きます。",
+                desc: "テンプレートは使わない。その会社のことを知らなきゃ、つくれない。",
               },
             ].map((item, i) => (
               <ScrollFadeIn key={item.num} delay={i * 80}>
@@ -208,6 +206,94 @@ export default function AboutPage() {
               </ScrollFadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Message */}
+      <section className="py-32 md:py-40 bg-surface-tint border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <ScrollFadeIn>
+            <p className="text-xs font-mono text-accent/50 tracking-[0.3em] uppercase">
+              // Message
+            </p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-display font-black text-ink leading-[1.1] tracking-tight uppercase">
+              Message
+            </h2>
+          </ScrollFadeIn>
+
+          <ScrollFadeIn delay={100}>
+            <div className="mt-14 relative border border-border bg-surface-card p-10 md:p-14">
+              {/* Corner markers */}
+              <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent/30" />
+              <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent/30" />
+              <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent/30" />
+              <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent/30" />
+
+              <div className="absolute inset-0 cyber-grid opacity-20" />
+
+              <div className="relative">
+                <p className="text-xs font-mono text-accent/40 tracking-[0.2em] mb-6">
+                  REPRESENTATIVE_VOICE
+                </p>
+                <blockquote className="text-lg md:text-xl text-ink leading-relaxed font-sans">
+                  「地方から世界を変える。大げさに聞こえるかもしれないけど、本気でそう思っています。いいものを持っているのに、届いていない会社がたくさんある。それを変えるのが、くまでの仕事です。」
+                </blockquote>
+                <p className="mt-8 text-sm font-mono text-muted/60 tracking-[0.15em]">
+                  代表　※後日追加
+                </p>
+              </div>
+            </div>
+          </ScrollFadeIn>
+        </div>
+      </section>
+
+      {/* Company */}
+      <section className="py-32 md:py-40 bg-surface border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <ScrollFadeIn>
+            <p className="text-xs font-mono text-accent/50 tracking-[0.3em] uppercase">
+              // Company
+            </p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-display font-black text-ink leading-[1.1] tracking-tight uppercase">
+              Company
+            </h2>
+          </ScrollFadeIn>
+
+          <ScrollFadeIn delay={100}>
+            <div className="mt-14 border border-border bg-surface-card overflow-hidden">
+              {[
+                { label: "会社名", value: "くまで（※法人格は後日追加）" },
+                { label: "代表者", value: "※後日追加" },
+                { label: "設立", value: "※後日追加" },
+                { label: "所在地", value: "福島県双葉郡大熊町（※詳細住所は後日追加）" },
+                { label: "事業内容", value: "クリエイティブ制作 / PR・ブランディング支援" },
+                { label: "URL", value: "https://kumade.jp" },
+              ].map((row, i) => (
+                <div
+                  key={row.label}
+                  className={`flex flex-col sm:flex-row border-b border-border last:border-b-0 ${
+                    i % 2 === 0 ? "bg-surface-card" : "bg-surface-tint"
+                  }`}
+                >
+                  <dt className="sm:w-48 shrink-0 px-8 py-5 text-xs font-mono text-accent/60 tracking-[0.2em] uppercase border-b sm:border-b-0 sm:border-r border-border flex items-center">
+                    {row.label}
+                  </dt>
+                  <dd className="px-8 py-5 text-sm text-muted leading-relaxed flex items-center">
+                    {row.label === "URL" ? (
+                      <a
+                        href={row.value}
+                        className="text-accent/80 hover:text-accent font-mono transition-colors"
+                      >
+                        {row.value}
+                      </a>
+                    ) : (
+                      row.value
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </div>
+          </ScrollFadeIn>
         </div>
       </section>
     </>

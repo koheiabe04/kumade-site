@@ -98,10 +98,10 @@ export default async function WorkDetailPage({ params }: Props) {
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <ScrollFadeIn>
             <p className="text-2xl md:text-3xl font-bold text-ink mb-4">
-              同じようなお悩みはありませんか？
+              同じような課題、ありませんか？
             </p>
             <p className="text-muted mb-8">
-              まずはお気軽にご相談ください。
+              話を聞かせてください。
             </p>
             <Link
               href="/contact"

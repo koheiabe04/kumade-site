@@ -3,16 +3,15 @@ import Image from "next/image";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link href="/" className={`flex items-center gap-2.5 group ${className}`}>
+    <Link href="/" className={`flex items-center group ${className}`}>
       <Image
         src="/logo.png"
-        alt="くまで"
-        width={40}
+        alt="KUMADE"
+        width={120}
         height={40}
-        className="rounded-lg group-hover:scale-105 transition-transform"
+        className="group-hover:scale-105 transition-transform"
         priority
       />
-      <span className="text-xl font-bold text-ink tracking-wide">くまで</span>
     </Link>
   );
 }
