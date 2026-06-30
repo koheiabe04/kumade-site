@@ -147,7 +147,7 @@ export default function ServicePage() {
                 <div className="group border border-border bg-surface-card p-7 hover:border-accent/30 transition-all h-full">
                   <div className="flex items-center justify-between mb-5">
                     <service.icon className="text-accent/50" size={22} />
-                    <span className="text-[10px] font-mono text-muted/30 tracking-wider">
+                    <span className="text-[10px] font-mono text-muted/60 tracking-wider">
                       {service.tag}
                     </span>
                   </div>
@@ -192,7 +192,7 @@ export default function ServicePage() {
                 <div className="group border border-border bg-surface-card p-7 hover:border-accent-alt/30 transition-all h-full">
                   <div className="flex items-center justify-between mb-5">
                     <service.icon className="text-accent-alt/50" size={22} />
-                    <span className="text-[10px] font-mono text-muted/30 tracking-wider">
+                    <span className="text-[10px] font-mono text-muted/60 tracking-wider">
                       {service.tag}
                     </span>
                   </div>
@@ -275,7 +275,7 @@ export default function ServicePage() {
                   href="/contact"
                   className="group inline-flex items-center justify-center gap-2 border border-accent/40 px-8 py-4 text-base font-display font-bold tracking-wider uppercase text-accent hover:bg-accent/10 hover:border-accent/60 transition-all"
                 >
-                  Free Consultation
+                  無料相談はこちら
                   <ArrowRight
                     size={18}
                     className="group-hover:translate-x-1 transition-transform"

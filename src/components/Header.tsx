@@ -41,7 +41,7 @@ export function Header() {
         <Link href="/" className="flex items-center group">
           <Image
             src="/logo.webp"
-            alt="KUMADE"
+            alt="くまで ホーム"
             width={120}
             height={40}
             className="group-hover:scale-105 transition-transform"
@@ -82,7 +82,7 @@ export function Header() {
 
       {/* Mobile menu overlay */}
       <div
-        className={`fixed inset-0 bg-surface z-40 flex flex-col transition-all duration-500 md:hidden ${
+        className={`fixed inset-0 bg-surface z-50 flex flex-col transition-all duration-500 md:hidden ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
       >
@@ -97,7 +97,7 @@ export function Header() {
           >
             <Image
               src="/logo.webp"
-              alt="KUMADE"
+              alt="くまで ホーム"
               width={120}
               height={40}
             />

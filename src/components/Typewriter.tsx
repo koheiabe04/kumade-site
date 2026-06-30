@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 type Props = {
   lines: string[];
@@ -15,7 +15,9 @@ export function Typewriter({
   speed = 80,
   lineDelay = 400,
 }: Props) {
-  const [displayed, setDisplayed] = useState("");
+  // SSR: show first line to prevent CLS. Client: start typing from empty.
+  const [displayed, setDisplayed] = useState(lines[0] ?? "");
+  const mounted = useRef(false);
 
   useEffect(() => {
     let currentLine = 0;
@@ -44,7 +46,13 @@ export function Typewriter({
       }
     }
 
-    timeout = setTimeout(type, 600);
+    // On first mount, reset to empty and start typing
+    if (!mounted.current) {
+      mounted.current = true;
+      setDisplayed("");
+    }
+
+    timeout = setTimeout(type, 200);
 
     return () => clearTimeout(timeout);
   }, [lines, speed, lineDelay]);

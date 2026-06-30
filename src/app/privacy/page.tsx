@@ -12,7 +12,10 @@ export default function PrivacyPage() {
       <section className="relative pt-32 pb-12 md:pt-44 md:pb-16 bg-surface-tint border-b border-border overflow-hidden">
         <div className="absolute inset-0 cyber-grid" />
         <div className="relative mx-auto max-w-3xl px-6 lg:px-8">
-          <h1 className="text-3xl md:text-4xl font-display font-black text-ink uppercase tracking-tight">
+          <p className="text-xs font-mono text-accent/50 tracking-[0.3em] uppercase">
+            &lt; Privacy /&gt;
+          </p>
+          <h1 className="mt-4 text-3xl md:text-4xl font-display font-black text-ink uppercase tracking-tight">
             Privacy Policy
           </h1>
           <div className="mt-6 w-16 h-px bg-gradient-to-r from-accent to-transparent" />
@@ -27,7 +30,7 @@ export default function PrivacyPage() {
                 1. 個人情報の取得
               </h2>
               <p>
-                くまで（以下「当社」）は、お問い合わせフォームを通じて、
+                株式会社くまで（以下「当社」）は、お問い合わせフォームを通じて、
                 お名前、メールアドレス、電話番号、会社名などの個人情報をご提供いただく場合があります。
                 これらの情報は、お客さまのご同意のもと、適法かつ公正な手段により取得いたします。
               </p>
@@ -99,7 +102,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="pt-6 border-t border-border">
-              <p className="text-xs text-muted/30 font-mono">
+              <p className="text-xs text-muted font-mono">
                 // 制定日：2026-06-18
               </p>
             </div>

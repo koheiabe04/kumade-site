@@ -33,14 +33,14 @@ export function HeroSection() {
       {/* Main content */}
       <div className="relative z-10 text-center px-6">
         {/* Tagline top */}
-        <div className="animate-fade-up-1">
+        <div className="animate-fade-up-d1">
           <p className="text-xs md:text-sm font-mono text-accent/60 tracking-[0.3em] uppercase mb-8">
             &lt; PR &amp; Branding from Fukushima /&gt;
           </p>
         </div>
 
         {/* Main title - huge */}
-        <div className="animate-fade-up-2">
+        <div className="animate-fade-up-d2">
           <h1
             className="glitch text-[clamp(48px,13vw,160px)] font-display font-black leading-[0.9] tracking-[-0.02em] text-ink neon-text-cyan"
             data-text="KUMADE"
@@ -50,17 +50,17 @@ export function HeroSection() {
         </div>
 
         {/* Japanese tagline */}
-        <div className="animate-fade-up-3">
+        <div className="animate-fade-up-d3">
           <p className="mt-6 md:mt-8 text-xl md:text-3xl font-bold text-ink/80 tracking-wider">
             かき集めろ、地方から。
           </p>
         </div>
 
         {/* Accent line */}
-        <div className="animate-fade-up-4 mx-auto mt-8 h-px w-48 md:w-64 bg-gradient-to-r from-transparent via-accent to-transparent" />
+        <div className="animate-fade-up-d4 mx-auto mt-8 h-px w-48 md:w-64 bg-gradient-to-r from-transparent via-accent to-transparent" />
 
         {/* Sub copy */}
-        <div className="animate-fade-up-5">
+        <div className="animate-fade-up-d5">
           <p className="mt-6 text-sm md:text-base text-muted font-mono">
             Design × Strategy × Passion
           </p>

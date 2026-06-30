@@ -23,8 +23,8 @@ export function Footer() {
             &lt; Contact /&gt;
           </p>
           <p className="text-3xl md:text-5xl font-display font-black text-ink leading-tight tracking-tight uppercase">
-            Get in
-            <span className="text-accent neon-text-cyan"> Touch</span>
+            お問い合わせは
+            <span className="text-accent neon-text-cyan">こちら</span>
           </p>
           <p className="mt-6 text-muted max-w-md mx-auto text-sm leading-relaxed">
             事業の話、聞かせてください。
@@ -34,7 +34,7 @@ export function Footer() {
               href="/contact"
               className="group inline-flex items-center justify-center gap-2 border border-accent/40 px-8 py-4 text-base font-display font-bold tracking-wider uppercase text-accent hover:bg-accent/10 hover:border-accent/60 transition-all"
             >
-              Contact Us
+              お問い合わせ
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -50,41 +50,18 @@ export function Footer() {
               <Link href="/">
                 <Image
                   src="/logo.webp"
-                  alt="KUMADE"
+                  alt="くまで ロゴ"
                   width={120}
                   height={40}
                   className="hover:scale-105 transition-transform"
                 />
               </Link>
-              <p className="mt-3 text-muted/60 text-xs max-w-xs leading-relaxed font-mono">
+              <p className="mt-3 text-muted text-xs max-w-xs leading-relaxed font-mono">
                 // 福島県大熊町発のPR・ブランディング会社
               </p>
             </div>
 
-            {/* SNS links */}
-            <div className="flex items-center gap-4">
-              <Link
-                href="#"
-                aria-label="Instagram"
-                className="text-muted/40 hover:text-accent/60 transition-colors"
-              >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              </Link>
-              <Link
-                href="#"
-                aria-label="X"
-                className="text-muted/40 hover:text-accent/60 transition-colors"
-              >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </Link>
-              <Link
-                href="#"
-                aria-label="note"
-                className="text-[11px] font-mono text-muted/40 hover:text-accent/60 transition-colors tracking-wider"
-              >
-                note
-              </Link>
-            </div>
+            {/* SNS links — href="#" のリンクは非表示。URL確定後に追加 */}
 
             {/* Nav links */}
             <nav className="flex flex-wrap gap-6" aria-label="フッターナビゲーション">
@@ -92,7 +69,7 @@ export function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-xs font-mono text-muted/40 hover:text-accent/60 transition-colors tracking-wider uppercase"
+                  className="text-xs font-mono text-muted hover:text-accent transition-colors tracking-wider uppercase"
                 >
                   {item.label}
                 </Link>
@@ -102,12 +79,12 @@ export function Footer() {
 
           {/* Bottom bar */}
           <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-[10px] text-muted/30 font-mono">
+            <p className="text-[10px] text-muted font-mono">
               &copy; {new Date().getFullYear()} KUMADE All rights reserved.
             </p>
             <Link
               href="/privacy"
-              className="text-[10px] text-muted/30 hover:text-accent/40 transition-colors font-mono"
+              className="text-[10px] text-muted hover:text-accent transition-colors font-mono"
             >
               Privacy Policy
             </Link>

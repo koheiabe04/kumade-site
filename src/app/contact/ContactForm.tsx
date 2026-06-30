@@ -12,6 +12,7 @@ type FormData = {
   phone: string;
   category: string;
   message: string;
+  privacy: boolean;
 };
 
 const categories = [
@@ -23,7 +24,7 @@ const categories = [
   "その他",
 ];
 
-const FORMSPREE_URL = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_URL = process.env.NEXT_PUBLIC_FORMSPREE_URL || "https://formspree.io/f/YOUR_FORM_ID";
 
 export function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
@@ -34,6 +35,7 @@ export function ContactForm() {
     phone: "",
     category: "",
     message: "",
+    privacy: false,
   });
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
     {}
@@ -52,6 +54,9 @@ export function ContactForm() {
       newErrors.message = "お問い合わせ内容を入力してください";
     } else if (data.message.trim().length < 10) {
       newErrors.message = "10文字以上で入力してください";
+    }
+    if (!data.privacy) {
+      newErrors.privacy = "プライバシーポリシーへの同意が必要です";
     }
 
     setErrors(newErrors);
@@ -89,7 +94,7 @@ export function ContactForm() {
     }
   }
 
-  function updateField(field: keyof FormData, value: string) {
+  function updateField(field: keyof FormData, value: string | boolean) {
     setData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors((prev) => {
@@ -107,7 +112,7 @@ export function ContactForm() {
           <CheckCircle className="text-accent" size={32} />
         </div>
         <h2 className="text-2xl font-display font-black text-ink mb-3 uppercase tracking-tight">
-          Sent
+          送信完了
         </h2>
         <p className="text-muted leading-relaxed max-w-md mx-auto text-sm">
           お問い合わせありがとうございます。
@@ -119,7 +124,7 @@ export function ContactForm() {
   }
 
   const inputBase =
-    "w-full border bg-surface-card px-4 py-3.5 text-ink text-sm placeholder:text-muted/30 outline-none transition-all font-sans";
+    "w-full border bg-surface-card px-4 py-3.5 text-ink text-sm placeholder:text-muted/50 outline-none transition-all font-sans";
   const inputNormal = `${inputBase} border-border focus:border-accent/50 focus:ring-1 focus:ring-accent/10 hover:border-accent/20`;
   const inputError = `${inputBase} border-accent-alt/40 focus:border-accent-alt/60 focus:ring-1 focus:ring-accent-alt/10`;
 
@@ -141,8 +146,8 @@ export function ContactForm() {
             className="block text-sm font-bold text-ink mb-2"
           >
             会社名
-            <span className="text-muted/40 text-xs font-mono font-normal ml-2">
-              optional
+            <span className="text-muted text-xs font-mono font-normal ml-2">
+              任意
             </span>
           </label>
           <input
@@ -163,7 +168,7 @@ export function ContactForm() {
           >
             お名前
             <span className="text-accent text-xs font-mono font-bold ml-2">
-              required
+              必須
             </span>
           </label>
           <input
@@ -196,7 +201,7 @@ export function ContactForm() {
           >
             メールアドレス
             <span className="text-accent text-xs font-mono font-bold ml-2">
-              required
+              必須
             </span>
           </label>
           <input
@@ -228,8 +233,8 @@ export function ContactForm() {
             className="block text-sm font-bold text-ink mb-2"
           >
             電話番号
-            <span className="text-muted/40 text-xs font-mono font-normal ml-2">
-              optional
+            <span className="text-muted text-xs font-mono font-normal ml-2">
+              任意
             </span>
           </label>
           <input
@@ -249,19 +254,19 @@ export function ContactForm() {
             className="block text-sm font-bold text-ink mb-2"
           >
             ご相談内容
-            <span className="text-muted/40 text-xs font-mono font-normal ml-2">
-              optional
+            <span className="text-muted text-xs font-mono font-normal ml-2">
+              任意
             </span>
           </label>
           <select
             id="category"
             value={data.category}
             onChange={(e) => updateField("category", e.target.value)}
-            className={inputNormal}
+            className={`${inputNormal} appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%238a8a9e%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_12px_center]`}
           >
-            <option value="">選択してください</option>
+            <option value="" className="bg-surface-card text-ink">選択してください</option>
             {categories.map((cat) => (
-              <option key={cat} value={cat}>
+              <option key={cat} value={cat} className="bg-surface-card text-ink">
                 {cat}
               </option>
             ))}
@@ -276,7 +281,7 @@ export function ContactForm() {
           >
             お問い合わせ内容
             <span className="text-accent text-xs font-mono font-bold ml-2">
-              required
+              必須
             </span>
           </label>
           <textarea
@@ -297,6 +302,34 @@ export function ContactForm() {
             >
               <AlertCircle size={12} />
               {errors.message}
+            </p>
+          )}
+        </div>
+
+        {/* Privacy consent */}
+        <div>
+          <label className="flex items-start gap-3 cursor-pointer group">
+            <input
+              type="checkbox"
+              checked={data.privacy}
+              onChange={(e) => updateField("privacy", e.target.checked)}
+              className="mt-1 w-4 h-4 shrink-0 accent-accent bg-surface-card border border-border"
+            />
+            <span className="text-sm text-muted leading-relaxed">
+              <a
+                href="/privacy"
+                target="_blank"
+                className="text-accent underline hover:text-accent/80 transition-colors"
+              >
+                プライバシーポリシー
+              </a>
+              に同意する
+            </span>
+          </label>
+          {errors.privacy && (
+            <p className="mt-1.5 text-xs text-accent-alt flex items-center gap-1 font-mono">
+              <AlertCircle size={12} />
+              {errors.privacy}
             </p>
           )}
         </div>
@@ -329,11 +362,11 @@ export function ContactForm() {
             {state === "submitting" ? (
               <>
                 <Loader2 size={18} className="animate-spin" />
-                Sending...
+                送信中...
               </>
             ) : (
               <>
-                Send Message
+                送信する
                 <ArrowRight
                   size={16}
                   className="group-hover:translate-x-1 transition-transform"
@@ -341,15 +374,8 @@ export function ContactForm() {
               </>
             )}
           </button>
-          <p className="mt-3 text-[11px] text-muted/40 font-mono">
-            // 送信いただいた情報は
-            <a
-              href="/privacy"
-              className="underline hover:text-accent transition-colors"
-            >
-              プライバシーポリシー
-            </a>
-            に基づき適切に管理いたします。
+          <p className="mt-3 text-[11px] text-muted font-mono">
+            // 送信いただいた情報はプライバシーポリシーに基づき適切に管理いたします。
           </p>
         </div>
       </div>

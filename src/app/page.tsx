@@ -20,11 +20,9 @@ export default function Home() {
       <div className="mt-12 md:mt-20 px-6 md:px-8 max-w-7xl mx-auto">
         <ScrollFadeIn>
           <p className="text-lg md:text-2xl leading-[2] text-muted max-w-3xl">
-            いいものを持っているのに、伝わっていない。
+            案件を取り、デジタルで形にし、現場を回って広げる。
             <br />
-            そういう会社を何度も見てきた。
-            <br />
-            デザインとPRで、<span className="text-accent">ちゃんと届くようにする</span>。
+            その全部を、地方の事業者の<span className="text-accent">隣で担う</span>。
             <br className="hidden md:block" />
             それが、くまでの仕事。
           </p>
@@ -94,7 +92,7 @@ export default function Home() {
             href="/service"
             className="group inline-flex h-14 items-center justify-center border border-accent/30 px-8 text-sm font-mono font-bold tracking-wider uppercase leading-none mt-10 md:mt-14 hover:bg-accent/10 hover:border-accent/60 text-accent transition-all"
           >
-            View All Services
+            サービス一覧を見る
             <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
         </ScrollFadeIn>
@@ -144,7 +142,7 @@ export default function Home() {
                 <div className="w-8 h-8 mx-auto border border-accent/20 flex items-center justify-center mb-4">
                   <div className="w-2 h-2 bg-accent/30" />
                 </div>
-                <p className="text-[10px] text-muted/40 tracking-[0.2em] uppercase font-mono">
+                <p className="text-[10px] text-muted tracking-[0.2em] uppercase font-mono">
                   Coming Soon
                 </p>
                 <p className="text-sm text-muted mt-3">実績を準備しています</p>
@@ -158,16 +156,16 @@ export default function Home() {
             href="/works"
             className="group inline-flex h-14 items-center justify-center border border-accent/30 px-8 text-sm font-mono font-bold tracking-wider uppercase leading-none mt-10 md:mt-14 hover:bg-accent/10 hover:border-accent/60 text-accent transition-all"
           >
-            View All Works
+            実績一覧を見る
             <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
         </ScrollFadeIn>
       </div>
 
       {/* ===== About ===== */}
-      <div className="mt-32 md:mt-52 px-6 md:px-8 max-w-7xl mx-auto md:flex md:justify-between md:gap-24">
+      <div className="mt-32 md:mt-52 px-6 md:px-8 max-w-7xl mx-auto md:flex md:justify-between md:gap-16 lg:gap-24">
         <ScrollFadeIn>
-          <div>
+          <div className="md:min-w-[220px] lg:min-w-[280px]">
             <p className="text-xs font-mono text-accent/50 tracking-[0.3em] uppercase mb-3">
               &lt; About /&gt;
             </p>
@@ -180,35 +178,35 @@ export default function Home() {
         <ScrollFadeIn delay={100}>
           <div className="mt-12 md:mt-0 md:max-w-2xl">
             <h3 className="text-2xl md:text-3xl font-bold leading-snug">
-              なぜ「くまで」なのか。
+              ゼロからでも、福はかき集められる。
             </h3>
             <p className="mt-8 text-base md:text-lg text-muted leading-[2]">
               <span className="text-ink font-bold">熊手</span>
               は、福をかき集める縁起物。
-              <br />
-              そして
-              <span className="text-ink font-bold">くまで</span>は、福島県
-              <span className="text-accent font-bold">大熊町</span>
-              から生まれた会社です。
+              <span className="text-ink font-bold">大熊町</span>
+              は、会社の出発点。
+              そして<span className="text-accent font-bold">再起</span>——
+              一度たたみ、ここから挑み直す物語。
             </p>
             <p className="mt-6 text-base md:text-lg text-muted leading-[2]">
-              大熊町から始めた。
-              <br />
-              東京にいなくても、やれることは全部やる。
+              三つの意味が重なる社名を背負い、
               <br className="hidden md:block" />
-              つくって、届けて、走り続ける。
+              「<span className="text-ink font-bold">都会に出なくても、地方から勝てる</span>」を
+              <br className="hidden md:block" />
+              大熊町から証明していく。
             </p>
             <Link
               href="/about"
               className="group inline-flex h-14 items-center justify-center border border-accent/30 px-8 text-sm font-mono font-bold tracking-wider uppercase leading-none mt-12 hover:bg-accent/10 hover:border-accent/60 text-accent transition-all"
             >
-              Learn More
+              もっと見る
               <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </ScrollFadeIn>
       </div>
 
-    </>
+
+</>
   );
 }
